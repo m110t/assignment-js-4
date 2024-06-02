@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="image/images.jpg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/all.min.css">
+<link rel="stylesheet" href="css/bootstrap.min.css">
+    <title>Login</title>
+</head>
+<body class="bad" >
+   
+    <div class="big-parent ">
+        <div class="parent  shadow-lg p-3 w-75 mt-5 m-s  rounded">
+            <h1 class="text-center header">Smart signin System
+            </h1>
+    
+    
+            <div>
+                <form>
+                    
+                    <div class="mb-3">
+                      <label for="exampleInputEmail1" class="form-label text-white ">Email id</label>
+                      <input type="email" class="form-control bg-transparent  text-white" placeholder="Enter Your Email" id="emailAddres" aria-describedby="emailHelp">
+                     
+                    </div>
+                    <div class="mb-3">
+                      <label for="exampleInputPassword1" class="form-label text-white input-1">Password</label>
+                      <input type="password" placeholder="Enter Your PassWord" class="form-control bg-transparent text-white"    id="password">
+                    </div>
+                    <div class="mb-3 form-check">
+                   
+                    </div>
+                    <button type="submit" onclick="signup()" class="btn btn-primary w-100 m-auto mt-1 bg-transparent sub-btn" id="login" >Submit</button>
+                  </form>
+            </div>
+    
+            <h6 class="text-center mt-3 text-white">Don’t have an account? <button class="sign" onclick="regester()">Sign up</button></h6>
+        </div>
+        
+    </div>
+
+
+    
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script>
+
+// function signup() {
+//   var emailAdd = document.getElementById("emailAddres").value
+//   var pass = document.getElementById("pass-word").value
+
+//   var signUpList = new Array()
+//   signUpList=JSON.parse(localStorage.getItem("sign"))?JSON.parse(localStorage.getItem("sign")):[]
+
+//   if(signUpList.some((v)=>{
+//     return v.emailAdd == emailAdd && v.pass == pass
+//   })){
+//     alert("succesfull login")
+//   }else {
+//     alert("login fall")
+//   }
+// }
+
+// function signup() {
+//   var emailAdd = document.getElementById("emailAddress").value;
+//   var pass = document.getElementById("password").value;
+
+//   // Retrieve the sign-up list from localStorage
+//   var signUpList = JSON.parse(localStorage.getItem("sign")) || [];
+
+//   // Check if the email and password match any stored credentials
+//   if(signUpList.some((v) => {
+//     return v.emailAdd === emailAdd && v.pass === pass;
+//   })) {
+//     alert("Successful login");
+//   } else {
+//     alert("Login failed");
+//   }
+// }
+
+function signup() {
+  var emailAdd = document.getElementById("emailAddres").value;
+  var pass = document.getElementById("password").value;
+
+  // console.log("Email:", emailAdd);
+  // console.log("Password:", pass);
+
+  var signUpList = JSON.parse(localStorage.getItem("sign")) || [];
+
+  // console.log("Sign-up List:", signUpList);
+
+  var matchFound = false;
+
+  // Iterate through each item in the signUpList
+  for (var i = 0; i < signUpList.length; i++) {
+    var user = signUpList[i];
+    // Check if the email and password match
+    if (user.account === emailAdd && user.security === pass) {
+      matchFound = true;
+     
+      // Break out of the loop since we found a match
+      break;
+    }
+  }
+
+  console.log("Match Found:", matchFound);
+
+  if (matchFound) {
+    alert("Successful login");
+    localStorage.setItem("loggedinUser", signUpList[i].useridentity);
+    window.open("welcome.html");
+  } else if (user.account != emailAdd){
+    alert("Login failed you have a prblem in your email ");
+  }else if (user.security != pass){
+    alert("Login failed you have a prblem in your password ");
+  
+  } 
+}
+
+
+function regester(){
+  window.open("index.html")
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>
